@@ -1,3 +1,10 @@
+# Hacked by Bee
+
+Modify the AVCam swift + iOS example enough to add a REST API that I can call from my robotic arm + iphone camera.  As you do.  See my photo-bot project for the higher order integration.
+
+This is a work in progress.
+
+
 # AVCam: Building a camera app
 Capture photos and record video using the front and rear iPhone and iPad cameras.
 
@@ -70,16 +77,16 @@ To preview the content a camera is capturing, AVFoundation provides a Core Anima
 
 ```swift
 class PreviewView: UIView, PreviewTarget {
-    
+
     // Use `AVCaptureVideoPreviewLayer` as the view's backing layer.
     override class var layerClass: AnyClass {
         AVCaptureVideoPreviewLayer.self
     }
-    
+
     var previewLayer: AVCaptureVideoPreviewLayer {
         layer as! AVCaptureVideoPreviewLayer
     }
-    
+
     func setSession(_ session: AVCaptureSession) {
         // Connects the session with the preview layer, which allows the layer
         // to provide a live view of the captured content.
@@ -92,20 +99,20 @@ To make this view accessible to SwiftUI, the app wraps it as a [UIViewRepresenta
 
 ```swift
 struct CameraPreview: UIViewRepresentable {
-    
+
     private let source: PreviewSource
-    
+
     init(source: PreviewSource) {
         self.source = source
     }
-    
+
     func makeUIView(context: Context) -> PreviewView {
         let preview = PreviewView()
         // Connect the preview layer to the capture session.
         source.connect(to: preview)
         return preview
     }
-    
+
     func updateUIView(_ previewView: PreviewView, context: Context) {
         // No implementation needed.
     }
@@ -143,13 +150,13 @@ The app starts in photo capture mode. Changing modes requires a reconfiguration 
 
 ```swift
 func setCaptureMode(_ captureMode: CaptureMode) throws {
-    
+
     self.captureMode = captureMode
-    
+
     // Change the configuration atomically.
     captureSession.beginConfiguration()
     defer { captureSession.commitConfiguration() }
-    
+
     // Configure the capture session for the selected capture mode.
     switch captureMode {
     case .photo:
@@ -176,11 +183,11 @@ The app provides a button that lets people switch between the front and back cam
 private func changeCaptureDevice(to device: AVCaptureDevice) {
     // The service must have a valid video input prior to calling this method.
     guard let currentInput = activeVideoInput else { fatalError() }
-    
+
     // Bracket the following configuration in a begin/commit configuration pair.
     captureSession.beginConfiguration()
     defer { captureSession.commitConfiguration() }
-    
+
     // Remove the existing video input before attempting to connect a new one.
     captureSession.removeInput(currentInput)
     do {
@@ -211,13 +218,13 @@ The capture service delegates handling of the app’s photo capture features to 
 func capturePhoto(with features: EnabledPhotoFeatures) async throws -> Photo {
     // Wrap the delegate-based capture API in a continuation to use it in an async context.
     try await withCheckedThrowingContinuation { continuation in
-        
+
         // Create a settings object to configure the photo capture.
         let photoSettings = createPhotoSettings(with: features)
-        
+
         let delegate = PhotoCaptureDelegate(continuation: continuation)
         monitorProgress(of: delegate)
-        
+
         // Capture a new photo with the specified settings.
         photoOutput.capturePhoto(with: photoSettings, delegate: delegate)
     }
@@ -234,7 +241,7 @@ func photoOutput(_ output: AVCapturePhotoOutput, didFinishCaptureFor resolvedSet
         continuation.resume(throwing: error)
         return
     }
-    
+
     /// Create a photo object to save to the `MediaLibrary`.
     let photo = Photo(data: photoData, isProxy: isProxyPhoto, livePhotoMovieURL: livePhotoMovieURL)
     // Resume the continuation by returning the captured photo.
@@ -255,7 +262,7 @@ func startRecording() {
 
     // Start a timer to update the recording time.
     startMonitoringDuration()
-    
+
     delegate = MovieCaptureDelegate()
     movieOutput.startRecording(to: URL.movieFileURL, recordingDelegate: delegate!)
 }
@@ -271,7 +278,7 @@ func stopRecording() async throws -> Movie {
     return try await withCheckedThrowingContinuation { continuation in
         // Set the continuation on the delegate to handle the capture result.
         delegate?.continuation = continuation
-        
+
         /// Stops recording, which causes the output to call the `MovieCaptureDelegate` object.
         movieOutput.stopRecording()
         stopMonitoringDuration()
