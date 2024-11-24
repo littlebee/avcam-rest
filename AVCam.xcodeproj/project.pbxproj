@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		910DD6DA2CF28804003A4D39 /* GridOverlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 910DD6D92CF28803003A4D39 /* GridOverlayView.swift */; };
+		910DD6DD2CF392D2003A4D39 /* Algorithms in Frameworks */ = {isa = PBXBuildFile; productRef = 910DD6DC2CF392D2003A4D39 /* Algorithms */; };
 		C400F46128DFD8AC00861093 /* ThumbnailButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C400F45E28DFD8AC00861093 /* ThumbnailButton.swift */; };
 		C400F46328DFDAB700861093 /* FoundationExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C400F46228DFDAB700861093 /* FoundationExtensions.swift */; };
 		C424961F2889CDC400C05256 /* CaptureModeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C424961E2889CDC400C05256 /* CaptureModeView.swift */; };
@@ -41,6 +43,7 @@
 /* Begin PBXFileReference section */
 		4171C532FBB2053E055D7336 /* SampleCode.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; name = SampleCode.xcconfig; path = Configuration/SampleCode.xcconfig; sourceTree = "<group>"; };
 		7710E8B4E5AEBAFE7C73EBAA /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		910DD6D92CF28803003A4D39 /* GridOverlayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridOverlayView.swift; sourceTree = "<group>"; };
 		B92404E334D9008D3705950F /* LICENSE.txt */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = LICENSE.txt; sourceTree = "<group>"; };
 		C400F45E28DFD8AC00861093 /* ThumbnailButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThumbnailButton.swift; sourceTree = "<group>"; };
 		C400F46228DFDAB700861093 /* FoundationExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoundationExtensions.swift; sourceTree = "<group>"; };
@@ -79,6 +82,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				910DD6DD2CF392D2003A4D39 /* Algorithms in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -108,6 +112,7 @@
 				C4DFD84728C5665E005B74F0 /* LiveBadge.swift */,
 				C4C686222892E33E0038EDE1 /* RecordingTimeView.swift */,
 				C4DFD84528C3ED3D005B74F0 /* StatusOverlayView.swift */,
+				910DD6D92CF28803003A4D39 /* GridOverlayView.swift */,
 			);
 			path = Overlays;
 			sourceTree = "<group>";
@@ -283,6 +288,9 @@
 				Base,
 			);
 			mainGroup = C4F82C90285ADDA2005D427A;
+			packageReferences = (
+				910DD6DB2CF392D2003A4D39 /* XCRemoteSwiftPackageReference "swift-algorithms" */,
+			);
 			productRefGroup = C4F82C9A285ADDA2005D427A /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -328,6 +336,7 @@
 				C442A31128BEAEA70029B42B /* MediaLibrary.swift in Sources */,
 				C4CB95D02BF06EA6000CF8C7 /* CameraUI.swift in Sources */,
 				C4C686232892E33E0038EDE1 /* RecordingTimeView.swift in Sources */,
+				910DD6DA2CF28804003A4D39 /* GridOverlayView.swift in Sources */,
 				C4DFD84428C3E173005B74F0 /* DataTypes.swift in Sources */,
 				C4EA0DC02891EFC20085A584 /* MovieCapture.swift in Sources */,
 				C4EA0DC32891F2F80085A584 /* CaptureExtensions.swift in Sources */,
@@ -583,6 +592,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		910DD6DB2CF392D2003A4D39 /* XCRemoteSwiftPackageReference "swift-algorithms" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/apple/swift-algorithms.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.2.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		910DD6DC2CF392D2003A4D39 /* Algorithms */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 910DD6DB2CF392D2003A4D39 /* XCRemoteSwiftPackageReference "swift-algorithms" */;
+			productName = Algorithms;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = C4F82C91285ADDA2005D427A /* Project object */;
 }
