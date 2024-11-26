@@ -12,6 +12,7 @@ import AVFoundation
 struct CameraUI<CameraModel: Camera>: PlatformView {
 
     @State var camera: CameraModel
+    @StateObject var server = FileServer(port: 8080)
     @Binding var swipeDirection: SwipeDirection
     
     @Environment(\.verticalSizeClass) var verticalSizeClass
@@ -37,6 +38,10 @@ struct CameraUI<CameraModel: Camera>: PlatformView {
         }
         .overlay {
             StatusOverlayView(status: camera.status)
+        }
+        .onAppear {
+          server.start()
+          server.loadFiles()
         }
     }
     

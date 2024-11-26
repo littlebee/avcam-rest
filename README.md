@@ -1,17 +1,20 @@
 # Hacked by Bee
 
-Modify the AVCam swift + iOS example enough to add a REST API that I can call from my robotic arm + iphone camera.  As you do.  See my photo-bot project for the higher order integration.
+Modify the [AVCam swift + iOS example](https://developer.apple.com/documentation/avfoundation/avcam-building-a-camera-app) enough to add a REST API that I can call from my robotic arm + iphone camera controller written in Python.  As you do.  See my [photo-bot project](https://github.com/littlebee/photo-bot) as an example of the higher order integration.
 
 This is a work in progress.  I'm yesterday new to swift and IOS development.  I was able to get the example running on my iphone 16 pro using the instructions [here](https://developer.apple.com/documentation/xcode/running-your-app-in-simulator-or-on-a-device)
 
 
-### Implementation details
-- [Use Vapor](https://www.kodeco.com/31498014-running-a-web-server-on-ios-with-vapor) to setup rest interface
-- 2 interfaces:
-- - snap hires photo and export to icloud; and
-- - shoot n second video,
+### things added changed from AVCam demo:
+- Added grid overlay (red vertical and horz lines and emphasized center lines) which is essential for product placement and manual shot alignment
+- [Used Vapor](https://www.kodeco.com/31498014-running-a-web-server-on-ios-with-vapor) to setup rest interface
+- 2 http get interfaces:
+- - /image = snap hires photo and export png to icloud? somewhere else?
+- - /video = shoot n second video and upload
 
+#
 # ------   Original AVCam Readme follows ------
+#
 
 # AVCam: Building a camera app
 Capture photos and record video using the front and rear iPhone and iPad cameras.

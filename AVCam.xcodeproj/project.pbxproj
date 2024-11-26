@@ -3,12 +3,14 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 56;
+	objectVersion = 70;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		910DD6DA2CF28804003A4D39 /* GridOverlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 910DD6D92CF28803003A4D39 /* GridOverlayView.swift */; };
 		910DD6DD2CF392D2003A4D39 /* Algorithms in Frameworks */ = {isa = PBXBuildFile; productRef = 910DD6DC2CF392D2003A4D39 /* Algorithms */; };
+		9140A1B72CF52ED400FBDA24 /* Vapor in Frameworks */ = {isa = PBXBuildFile; productRef = 9140A1B62CF52ED400FBDA24 /* Vapor */; };
+		9140A1BA2CF52EFE00FBDA24 /* Leaf in Frameworks */ = {isa = PBXBuildFile; productRef = 9140A1B92CF52EFE00FBDA24 /* Leaf */; };
 		C400F46128DFD8AC00861093 /* ThumbnailButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C400F45E28DFD8AC00861093 /* ThumbnailButton.swift */; };
 		C400F46328DFDAB700861093 /* FoundationExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C400F46228DFDAB700861093 /* FoundationExtensions.swift */; };
 		C424961F2889CDC400C05256 /* CaptureModeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C424961E2889CDC400C05256 /* CaptureModeView.swift */; };
@@ -77,12 +79,18 @@
 		C4F82CCD285AE233005D427A /* CameraPreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraPreview.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		9140A1BB2CF52F6D00FBDA24 /* server */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = server; sourceTree = "<group>"; };
+/* End PBXFileSystemSynchronizedRootGroup section */
+
 /* Begin PBXFrameworksBuildPhase section */
 		C4F82C96285ADDA2005D427A /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9140A1BA2CF52EFE00FBDA24 /* Leaf in Frameworks */,
 				910DD6DD2CF392D2003A4D39 /* Algorithms in Frameworks */,
+				9140A1B72CF52ED400FBDA24 /* Vapor in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -210,6 +218,7 @@
 		C4F82C9B285ADDA2005D427A /* AVCam */ = {
 			isa = PBXGroup;
 			children = (
+				9140A1BB2CF52F6D00FBDA24 /* server */,
 				C4F82C9C285ADDA2005D427A /* AVCamApp.swift */,
 				C48091832BD584AD00753C4A /* CameraModel.swift */,
 				C4F82CCB285AE206005D427A /* CaptureService.swift */,
@@ -257,6 +266,9 @@
 			);
 			dependencies = (
 			);
+			fileSystemSynchronizedGroups = (
+				9140A1BB2CF52F6D00FBDA24 /* server */,
+			);
 			name = AVCam;
 			productName = AVCam;
 			productReference = C4F82C99285ADDA2005D427A /* AVCam.app */;
@@ -290,6 +302,8 @@
 			mainGroup = C4F82C90285ADDA2005D427A;
 			packageReferences = (
 				910DD6DB2CF392D2003A4D39 /* XCRemoteSwiftPackageReference "swift-algorithms" */,
+				9140A1B52CF52ED400FBDA24 /* XCRemoteSwiftPackageReference "vapor" */,
+				9140A1B82CF52EFE00FBDA24 /* XCRemoteSwiftPackageReference "leaf" */,
 			);
 			productRefGroup = C4F82C9A285ADDA2005D427A /* Products */;
 			projectDirPath = "";
@@ -602,6 +616,22 @@
 				minimumVersion = 1.2.0;
 			};
 		};
+		9140A1B52CF52ED400FBDA24 /* XCRemoteSwiftPackageReference "vapor" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/vapor/vapor.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.106.4;
+			};
+		};
+		9140A1B82CF52EFE00FBDA24 /* XCRemoteSwiftPackageReference "leaf" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/vapor/leaf.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.4.1;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -609,6 +639,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 910DD6DB2CF392D2003A4D39 /* XCRemoteSwiftPackageReference "swift-algorithms" */;
 			productName = Algorithms;
+		};
+		9140A1B62CF52ED400FBDA24 /* Vapor */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 9140A1B52CF52ED400FBDA24 /* XCRemoteSwiftPackageReference "vapor" */;
+			productName = Vapor;
+		};
+		9140A1B92CF52EFE00FBDA24 /* Leaf */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 9140A1B82CF52EFE00FBDA24 /* XCRemoteSwiftPackageReference "leaf" */;
+			productName = Leaf;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
