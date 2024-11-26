@@ -12,6 +12,24 @@ This is a work in progress.  I'm yesterday new to swift and IOS development.  I 
 - - /image = snap hires photo and export png to icloud? somewhere else?
 - - /video = shoot n second video and upload
 
+### tl;dr  XCode & swift comments/wishes
+
+I really would just ignore XCode and remap file explorer to open files it defaulted to XCode to open in my normal preferred editor dela hora. That editor happens to be VSCode ATM.   The VSCode support for Swift is minimal.  I still don't have "Go to definition", which is a stated feature, using the instructed setup and a google search says I'm not alone there.   I tried various suggestions.
+
+You can't ignore XCode.  Apple has positioned this as the only choice for Swift development and parts of it, like live preview on wysiwyg views, the simulator and deploying to a device all work well, thankfully.  There is no other way to do these things in VSCode that I have found to date.
+
+I switched to using XCode similar to the way I use Chrome development tools - do my editing, hot server running elsewhere and use Chrome as a debugger.  In XCode's case, I also use it to deploy and debug.
+
+Things to make XCode better in my humble opinion:
+- add keyboard mapping templates for other editors.  It took me a bit to find what it calls "Quick Actions" (What Atom and VSCode call "command palette").
+- Quick Actions needs to be a lot smarter. Because I have not memorized the 100(s?) of key mappings and I am forced to go to Quick Actions to duplicate a block of code, I have to type "dup" and it's the forth hit down (4 additional key presses) to get to this action I've used a gazillion times?  See how VSCode does it
+- Too much clicking.
+- Markdown editing in WYSIWYG is seriously 🤮.   We are developers.  All this WYSIWYG editing press this to start a bulleted list...  is a waist of my time.
+- Too much hidden machinery.  If you add a package to a project, XCode will add that package to the equivalent of NPM's package.lock file which XCode calls project.pbxproj.  This is not a human editable file.  You absolutely need to go though XCode's UI.
+- Adding a package from a github url should be more intuitive.  Hiding this essential feature in the placeholder of a search input doing double duty is maybe what led to...
+- At one point I had a to a `git reset --hard HEAD' I had messed up package dependencies too much. I normally attribute having to do this to my hard head. The second time though it worked smoother but sure was frustrating learning how to add 3p packages like Vapor and Leaf.  Would recommend having a second(?) more user editable file of deps and requested semantic version?
+
+
 #
 # ------   Original AVCam Readme follows ------
 #
