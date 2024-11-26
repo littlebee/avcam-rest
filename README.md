@@ -24,10 +24,10 @@ Things to make XCode better in my humble opinion:
 - add keyboard mapping templates for other editors.  It took me a bit to find what it calls "Quick Actions" (What Atom and VSCode call "command palette").
 - Quick Actions needs to be a lot smarter. Because I have not memorized the 100(s?) of key mappings and I am forced to go to Quick Actions to duplicate a block of code, I have to type "dup" and it's the forth hit down (4 additional key presses) to get to this action I've used a gazillion times?  See how VSCode does it
 - Too much clicking.
-- Markdown editing in WYSIWYG is seriously 🤮.   We are developers.  All this WYSIWYG editing press this to start a bulleted list...  is a waist of my time.
-- Too much hidden machinery.  If you add a package to a project, XCode will add that package to the equivalent of NPM's package.lock file which XCode calls project.pbxproj.  This is not a human editable file.  You absolutely need to go though XCode's UI.
+- Markdown editing in WYSIWYG is seriously 🤮.   We are developers.  All this WYSIWYG editing press this to start a bulleted list...  is a waste of my time.
+- Too much hidden machinery.  If you add a package to a project, XCode will add that package to the equivalent of NPM's package.lock file which XCode calls project.pbxproj.  This is not a human editable file.  You absolutely need to go though XCode's UI which is cumbersome and annoying.
 - Adding a package from a github url should be more intuitive.  Hiding this essential feature in the placeholder of a search input doing double duty is maybe what led to...
-- At one point I had a to a `git reset --hard HEAD' I had messed up package dependencies too much. I normally attribute having to do this to my hard head. The second time though it worked smoother but sure was frustrating learning how to add 3p packages like Vapor and Leaf.  Would recommend having a second(?) more user editable file of deps and requested semantic version?
+- At one point I had a to a `git reset --hard HEAD' I had messed up package dependencies too much. The second time though it worked smoother but sure was frustrating learning how to add 3p packages like Vapor and Leaf.  Would recommend having a second(?) more user editable file of deps and requested semantic version?
 
 
 #
