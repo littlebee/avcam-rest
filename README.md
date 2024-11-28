@@ -12,23 +12,24 @@ This is a work in progress.  I'm yesterday new to swift and IOS development.  I 
 - - /image = snap hires photo and export png to icloud? somewhere else?
 - - /video = shoot n second video and upload
 
-### tl;dr  XCode & swift comments/wishes
+## tl;dr  XCode & swift experience, comments & wishes
 
-I really would just ignore XCode and remap file explorer to open files it defaulted to XCode to open in my normal preferred editor dela hora. That editor happens to be VSCode ATM.   The VSCode support for Swift is minimal.  I still don't have "Go to definition", which is a stated feature, using the instructed setup and a google search says I'm not alone there.   I tried various suggestions.
+I really would just ignore XCode and remap file explorer to open in my normal preferred editor dela hora. That editor happens to be VSCode at the moment.   The VSCode support for Swift is minimal.  I still don't have "Go to definition" working which is a stated feature of the extension.  I used the instructed setup. A google search say's I'm not entirely alone with not getting it to work. I tried various suggestions.
 
-You can't ignore XCode.  Apple has positioned this as the only choice for Swift development and parts of it, like live preview on wysiwyg views, the simulator and deploying to a device all work well, thankfully.  There is no other way to do these things in VSCode that I have found to date.
+You can't ignore XCode.  Apple has positioned this as the only choice for Swift development and parts of it, like live preview on wysiwyg views, the simulator and deploying to a device all work well, thankfully.  There is no other way to do these things in VSCode that I have found to date.  I switched to using XCode similar to the way I use Chrome development tools - do my editing, hot server running elsewhere and use Chrome as a debugger.  In XCode's case, I also use it to deploy and debug.
 
-I switched to using XCode similar to the way I use Chrome development tools - do my editing, hot server running elsewhere and use Chrome as a debugger.  In XCode's case, I also use it to deploy and debug.
+### Things to make XCode better in my humble opinion
 
-Things to make XCode better in my humble opinion:
-- add keyboard mapping templates for other editors.  It took me a bit to find what it calls "Quick Actions" (What Atom and VSCode call "command palette").
-- Quick Actions needs to be a lot smarter. Because I have not memorized the 100(s?) of key mappings and I am forced to go to Quick Actions to duplicate a block of code, I have to type "dup" and it's the forth hit down (4 additional key presses) to get to this action I've used a gazillion times?  See how VSCode does it
-- Too much clicking.
-- Markdown editing in WYSIWYG is seriously 🤮.   We are developers.  All this WYSIWYG editing press this to start a bulleted list...  is a waste of my time.
+- add keyboard mapping templates for other editors.  It took me a bit to find what it calls "Quick Actions" (What Atom, VSCode, and Chrome dev tools call "command palette").
+- Quick Actions needs to be a lot smarter. Because I have not memorized the 100(s?) of key mappings and I am forced to go to Quick Actions to duplicate a block of code, I have to type "dup" and it's always the forth hit down (4 additional key presses) to get to this action I've used a gazillion times?  See how VSCode does it
+- Too much clicking
+- Markdown editing in WYSIWYG is seriously 🤮. We are developers. All this WYSIWYG editing - press this to start a bulleted list, etc...  is a waste of my time.
+- Maybe it's just that it opens a wysiwyg preview by default on markdown files?  How, for the love of productivity do you edit markdown in this tool??
 - Too much hidden machinery.  If you add a package to a project, XCode will add that package to the equivalent of NPM's package.lock file which XCode calls project.pbxproj.  This is not a human editable file.  You absolutely need to go though XCode's UI which is cumbersome and annoying.
 - Adding a package from a github url should be more intuitive.  Hiding this essential feature in the placeholder of a search input doing double duty is maybe what led to...
-- At one point I had a to a `git reset --hard HEAD' I had messed up package dependencies too much. The second time though it worked smoother but sure was frustrating learning how to add 3p packages like Vapor and Leaf.  Would recommend having a second(?) more user editable file of deps and requested semantic version?
-
+- At one point I had a to a `git reset --hard HEAD' I had messed up package dependencies too much. The second time though it worked smoother but sure was frustrating learning how to add 3p packages like Vapor and Leaf.  Would recommend having a second(?) more user editable file of deps and requested semantic version that maybe already exists and I haven't found yet?
+- when I open project navigator, I would like to most likely see the file I'm editing selected, with parents opened to show it.  The parents if closed don't open.
+- when I have text selected in the editor and open the file search sidebar, having the text I just selected be the query input is ~95% of what I want to search and if not, an up arrow press will get me to the previous search and, since the text from editing is fully selected by default, i can always just start typing to search for something entirely different.
 
 #
 # ------   Original AVCam Readme follows ------

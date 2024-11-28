@@ -31,67 +31,39 @@
 /// THE SOFTWARE.
 
 import Foundation
-import Vapor
 import Leaf
+import Vapor
 
 class FileServer: ObservableObject {
-  var app: Application
-  let port: Int
+    var app: Application
+    let port: Int
+    var camera: CameraModel
 
-  @Published var fileURLs: [URL] = []
-
-  init(port: Int) {
-    self.port = port
-    app = Application(.development)
-    configure(app)
-    NotificationCenter.default.addObserver(forName: .serverFilesChanged, object: nil, queue: .main) { _ in
-      self.loadFiles()
+    init(port: Int, camera: CameraModel) {
+        self.port = port
+        self.camera = camera
+        app = Application(.development)
+        configure(app)
     }
-  }
 
-  private func configure(_ app: Application) {
-    app.http.server.configuration.hostname = "0.0.0.0"
-    app.http.server.configuration.port = port
+    private func configure(_ app: Application) {
+        app.http.server.configuration.hostname = "0.0.0.0"
+        app.http.server.configuration.port = port
 
-    app.views.use(.leaf)
-    app.leaf.cache.isEnabled = app.environment.isRelease
-    app.leaf.configuration.rootDirectory = Bundle.main.bundlePath
-    app.routes.defaultMaxBodySize = "50MB"
-  }
+        app.views.use(.leaf)
+        app.leaf.cache.isEnabled = app.environment.isRelease
+        app.leaf.configuration.rootDirectory = Bundle.main.bundlePath
+        app.routes.defaultMaxBodySize = "50MB"
+    }
 
     func start() {
-      Task(priority: .background) {
-        do {
-          try app.register(collection: FileWebRouteCollection())
-          try app.start()
-        } catch {
-          fatalError(error.localizedDescription)
+        Task(priority: .background) {
+            do {
+                try app.register(collection: FileWebRouteCollection(camera: camera))
+                try app.start()
+            } catch {
+                fatalError(error.localizedDescription)
+            }
         }
-      }
     }
-
-  func loadFiles() {
-    do {
-      let documentsDirectory = try FileManager.default.url(
-        for: .documentDirectory,
-        in: .userDomainMask,
-        appropriateFor: nil,
-        create: false)
-      let fileUrls = try FileManager.default.contentsOfDirectory(
-        at: documentsDirectory,
-        includingPropertiesForKeys: nil,
-        options: .skipsHiddenFiles)
-      self.fileURLs = fileUrls
-    } catch {
-      print(error)
-    }
-  }
-
-  func deleteFile(at offsets: IndexSet) {
-    let urlsToDelete = offsets.map { fileURLs[$0] }
-    fileURLs.remove(atOffsets: offsets)
-    for url in urlsToDelete {
-      try? FileManager.default.removeItem(at: url)
-    }
-  }
 }

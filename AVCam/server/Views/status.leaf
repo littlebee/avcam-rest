@@ -1,0 +1,18 @@
+<!doctype html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>avcam-rest status</title>
+
+    <style>body {padding-top: 5rem;}</style>
+  </head>
+  <body>
+    <main>
+        <div> Alive and maybe well</div>
+        <p>We really don't know, but if you're reading this then the app works 🎉</p>
+    </main>
+  </body>
+</html>

@@ -1,23 +1,21 @@
 /*
-See the LICENSE.txt file for this sample’s licensing information.
+ See the LICENSE.txt file for this sample’s licensing information.
 
-Abstract:
-A view that presents the main camera user interface.
-*/
+ Abstract:
+ A view that presents the main camera user interface.
+ */
 
-import SwiftUI
 import AVFoundation
+import SwiftUI
 
 /// A view that presents the main camera user interface.
 struct CameraUI<CameraModel: Camera>: PlatformView {
-
     @State var camera: CameraModel
-    @StateObject var server = FileServer(port: 8080)
     @Binding var swipeDirection: SwipeDirection
-    
+
     @Environment(\.verticalSizeClass) var verticalSizeClass
     @Environment(\.horizontalSizeClass) var horizontalSizeClass
-    
+
     var body: some View {
         Group {
             if isRegularSize {
@@ -39,12 +37,8 @@ struct CameraUI<CameraModel: Camera>: PlatformView {
         .overlay {
             StatusOverlayView(status: camera.status)
         }
-        .onAppear {
-          server.start()
-          server.loadFiles()
-        }
     }
-    
+
     /// This view arranges UI elements vertically.
     @ViewBuilder
     var compactUI: some View {
@@ -56,7 +50,7 @@ struct CameraUI<CameraModel: Camera>: PlatformView {
                 .padding(.bottom, bottomPadding)
         }
     }
-    
+
     /// This view arranges UI elements in a layered stack.
     @ViewBuilder
     var regularUI: some View {
@@ -76,7 +70,7 @@ struct CameraUI<CameraModel: Camera>: PlatformView {
             .padding(.bottom, 32)
         }
     }
-    
+
     var swipeGesture: some Gesture {
         DragGesture(minimumDistance: 50)
             .onEnded {
@@ -84,7 +78,7 @@ struct CameraUI<CameraModel: Camera>: PlatformView {
                 swipeDirection = $0.translation.width < 0 ? .left : .right
             }
     }
-    
+
     var bottomPadding: CGFloat {
         // Dynamically calculate the offset for the bottom toolbar in iOS.
         let bounds = UIScreen.main.bounds

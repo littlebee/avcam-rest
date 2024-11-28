@@ -40,9 +40,10 @@ struct PreviewContainer<Content: View, CameraModel: Camera>: View {
         // On compact devices, show a view finder rectangle around the video preview bounds.
         if horizontalSizeClass == .compact {
             ZStack {
-                previewView.overlay {
-                    GridOverlayView()
-                }
+                previewView
+                    .overlay {
+                        GridOverlayView()
+                    }
             }
             .clipped()
             // Apply an appropriate aspect ratio based on the selected capture mode.
@@ -51,9 +52,10 @@ struct PreviewContainer<Content: View, CameraModel: Camera>: View {
             .offset(y: camera.captureMode == .photo ? photoModeOffset : 0)
         } else {
             // On regular-sized UIs, show the content in full screen.
-            previewView.overlay {
-                GridOverlayView()
-            }
+            previewView
+                .overlay {
+                    GridOverlayView()
+                }
         }
     }
 
