@@ -1,6 +1,6 @@
 # Hacked by Bee
 
-Modify the [AVCam swift + iOS example](https://developer.apple.com/documentation/avfoundation/avcam-building-a-camera-app) enough to add a REST API that I can call from my robotic arm + iphone camera controller written in Python.  As you do.  See my [photo-bot project](https://github.com/littlebee/photo-bot) as an example of the higher order integration.
+Modify the [AVCam swift + iOS example](https://developer.apple.com/documentation/avfoundation/avcam-building-a-camera-app) enough to add a REST API that I can call from my robotic arm + iphone camera controller written in Python.  As you do.  See my [photo-bot project](https://github.com/littlebee/photo-bot) as an example of the higher order integration (TBD).
 
 This is a work in progress.  I'm yesterday new to swift and IOS development.  I was able to get the example running on my iphone 16 pro using the instructions [here](https://developer.apple.com/documentation/xcode/running-your-app-in-simulator-or-on-a-device)
 
@@ -8,13 +8,15 @@ This is a work in progress.  I'm yesterday new to swift and IOS development.  I 
 ### things added changed from AVCam demo:
 - Added grid overlay (red vertical and horz lines and emphasized center lines) which is essential for product placement and manual shot alignment
 - [Used Vapor](https://www.kodeco.com/31498014-running-a-web-server-on-ios-with-vapor) to setup rest interface
-- 2 http get interfaces:
+- 2 http GET interfaces:
 - - /image = snap hires photo and export png to icloud? somewhere else?
-- - /video = shoot n second video and upload
+- - /video = shoot 10 second video and upload
 
 ## tl;dr  XCode & swift experience, comments & wishes
 
-I really would just ignore XCode and remap file explorer to open in my normal preferred editor dela hora. That editor happens to be VSCode at the moment.   The VSCode support for Swift is minimal.  I still don't have "Go to definition" working which is a stated feature of the extension.  I used the instructed setup. A google search say's I'm not entirely alone with not getting it to work. I tried various suggestions.
+[todo: get a blog or something already, maybe make this less bitchy and post to reddit]
+
+I would normally just ignore XCode and remap file explorer to open in my normal preferred editor dela hora. That editor happens to be VSCode at the moment.   The VSCode support for Swift is minimal.  I still don't have "Go to definition" working which is a stated feature of the extension.  I used the instructed setup. A google search say's I'm not entirely alone with not getting it to work. I tried various suggestions.
 
 You can't ignore XCode.  Apple has positioned this as the only choice for Swift development and parts of it, like live preview on wysiwyg views, the simulator and deploying to a device all work well, thankfully.  There is no other way to do these things in VSCode that I have found to date.  I switched to using XCode similar to the way I use Chrome development tools - do my editing, hot server running elsewhere and use Chrome as a debugger.  In XCode's case, I also use it to deploy and debug.
 
@@ -26,9 +28,9 @@ You can't ignore XCode.  Apple has positioned this as the only choice for Swift 
 - Markdown editing in WYSIWYG is seriously 🤮. We are developers. All this WYSIWYG editing - press this to start a bulleted list, etc...  is a waste of my time.
 - Maybe it's just that it opens a wysiwyg preview by default on markdown files?  How, for the love of productivity do you edit markdown in this tool??
 - Too much hidden machinery.  If you add a package to a project, XCode will add that package to the equivalent of NPM's package.lock file which XCode calls project.pbxproj.  This is not a human editable file.  You absolutely need to go though XCode's UI which is cumbersome and annoying.
-- Adding a package from a github url should be more intuitive.  Hiding this essential feature in the placeholder of a search input doing double duty is maybe what led to...
+- Adding a package from a github url should be more intuitive.  Hiding this essential feature in the placeholder text of a search input doing double duty is maybe what led to...
 - At one point I had a to a `git reset --hard HEAD' I had messed up package dependencies too much. The second time though it worked smoother but sure was frustrating learning how to add 3p packages like Vapor and Leaf.  Would recommend having a second(?) more user editable file of deps and requested semantic version that maybe already exists and I haven't found yet?
-- when I open project navigator, I would like to most likely see the file I'm editing selected, with parents opened to show it.  The parents if closed don't open.
+- when I open project navigator, I would like to most likely see the file I'm editing selected, with parents opened to show it.  Currently the parents, if closed, don't open.
 - when I have text selected in the editor and open the file search sidebar, having the text I just selected be the query input is ~95% of what I want to search and if not, an up arrow press will get me to the previous search and, since the text from editing is fully selected by default, i can always just start typing to search for something entirely different.
 
 #
