@@ -38,7 +38,7 @@ struct FileWebRouteCollection: RouteCollection {
     func boot(routes: RoutesBuilder) throws {
         routes.get(use: statusViewHandler)
         routes.get("image", use: captureImageHandler)
-        routes.get("video", use: captureImageHandler)
+        routes.get("video", use: captureVideoHandler)
     }
 
     func statusViewHandler(_ req: Request) async throws -> View {
@@ -47,6 +47,11 @@ struct FileWebRouteCollection: RouteCollection {
 
     func captureImageHandler(_ req: Request) async throws -> Response {
         await camera.capturePhoto()
+        return req.redirect(to: "/")
+    }
+
+    func captureVideoHandler(_ req: Request) async throws -> Response {
+        await camera.captureVideo()
         return req.redirect(to: "/")
     }
 

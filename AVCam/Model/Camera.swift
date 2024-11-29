@@ -28,7 +28,7 @@ protocol Camera: AnyObject {
 
     /// The capture mode, which can be photo or video.
     var captureMode: CaptureMode { get set }
-    
+        
     /// A Boolean value that indicates whether the camera is currently switching capture modes.
     var isSwitchingModes: Bool { get }
 
@@ -47,6 +47,9 @@ protocol Camera: AnyObject {
     /// Captures a photo and writes it to the user's photo library.
     func capturePhoto() async
     
+    /// Captures a video and writes it to the user's photo library.
+    func captureVideo() async
+
     /// A Boolean value that indicates whether to show visual feedback when capture begins.
     var shouldFlashScreen: Bool { get }
     

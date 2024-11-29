@@ -61,6 +61,10 @@ class PreviewCameraModel: Camera {
         logger.debug("Photo capture isn't implemented in PreviewCamera.")
     }
     
+    func captureVideo() {
+        logger.debug("Video capture isn't implemented in PreviewCamera.")
+    }
+    
     func toggleRecording() {
         logger.debug("Moving capture isn't implemented in PreviewCamera.")
     }
